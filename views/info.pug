@@ -1,0 +1,29 @@
+extends layout
+
+block content
+    h2= title
+
+    img(
+        src= thumbnail
+        alt= title
+        title= title
+        width= 100
+        height= 100
+    )
+
+    p= description
+
+    time= duration
+
+    iframe(witdh='50%', src=url)
+
+    //- src='https://youtube.com/watch?v=#{id}'
+
+    form(action="/download/", method="post")
+        input(type="submit", value="Download")
+
+    p
+        a(
+            href='https://youtube.com/watch?v=' + id
+            target='_blank'
+        ) Watch it on YT
