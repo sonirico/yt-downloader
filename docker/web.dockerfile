@@ -1,5 +1,7 @@
 FROM node:9.5-alpine
 
+# Install python3 dependencies for
+# youtube_dl library https://rg3.github.io/youtube-dl/
 RUN apk add --no-cache python python-dev python3 python3-dev \
     linux-headers build-base bash git ca-certificates && \
     python3 -m ensurepip && \
@@ -10,8 +12,8 @@ RUN apk add --no-cache python python-dev python3 python3-dev \
 
 RUN pip install --upgrade youtube_dl
 
-ADD . /app
-WORKDIR /app
+ADD ./app /yt
+WORKDIR /yt
 RUN npm install
 CMD npm start
 EXPOSE 3000
