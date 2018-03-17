@@ -1,3 +1,5 @@
+# docker file intended to be used when no compose file
+# is present
 FROM node:9.5-alpine
 
 # Install python3 dependencies for
@@ -12,7 +14,6 @@ RUN apk add --no-cache python python-dev python3 python3-dev \
 
 RUN pip install --upgrade youtube_dl
 
-
 ADD ./app /yt
 
 WORKDIR /yt
@@ -21,3 +22,5 @@ RUN npm install
 CMD npm start
 
 EXPOSE 3000
+
+VOLUME ["/yt"]
