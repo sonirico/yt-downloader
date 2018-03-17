@@ -12,8 +12,8 @@ RUN apk add --no-cache python python-dev python3 python3-dev \
 
 RUN pip install --upgrade youtube_dl
 
-ADD ./app /yt
 WORKDIR /yt
+ADD ./app /yt
 RUN npm install
 CMD npm start
 EXPOSE 3000

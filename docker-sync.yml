@@ -1,0 +1,25 @@
+# this is our development docker-compose building on top of the production docker-compose, just mounting
+# the sync image - not redefining anything else
+
+version: "2"
+services:
+  web:
+    volumes:
+      - appcode-sync:/yt:nocopy # will be mounted on /var/www
+
+# that the important thing
+volumes:
+  appcode-sync:
+
+options:
+  compose-file-path: './docker-compose.yml'
+  compose-dev-file-path: './docker-compose-dev.yml'
+  verbose: true # make the whole sync verbose
+
+syncs:
+  appcode-sync: #tip: add -sync and you keep consistent names as a convention
+    src: './app'
+    # sync_host_ip: 'auto'
+    # sync_host_port: 10872
+    # sync_userid: '1001'
+# watch_args: '-v' # make watching verbose
