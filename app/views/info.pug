@@ -1,29 +1,32 @@
 extends layout
 
 block content
-    h2= title
+    h2= video.title
 
     img(
-        src= thumbnail
-        alt= title
-        title= title
+        src= video.thumbnail_url
+        alt= video.title
+        title= video.title
         width= 100
         height= 100
     )
 
-    p= description
+    p= video.description
 
-    time= duration
+    time= video.length_seconds + "s"
 
-    iframe(witdh='50%', src=url)
-
-    //- src='https://youtube.com/watch?v=#{id}'
+    iframe(witdh='50%', src=video.url)
 
     form(action="/download/", method="post")
-        input(type="submit", value="Download")
+        input(type="hidden", name="video_id", value= video.id)
+
+        if valid_duration
+            input(type="submit", value="Download")
+        else
+            p Sorry, this video is too long for being converted.
 
     p
         a(
-            href='https://youtube.com/watch?v=' + id
+            href='https://youtube.com/watch?v=' + video.id
             target='_blank'
         ) Watch it on YT
