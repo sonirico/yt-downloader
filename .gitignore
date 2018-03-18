@@ -1,4 +1,5 @@
-bin/
-node_modules/
+app/bin/
+app/node_modules/
+
 .vagrant/
 env.yml
