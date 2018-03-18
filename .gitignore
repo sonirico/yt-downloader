@@ -1,3 +1,7 @@
+# Redis mountpoint
+data/
+
+# binaries and libraries
 app/bin/
 app/node_modules/
 
