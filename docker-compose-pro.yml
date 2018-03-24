@@ -1,0 +1,25 @@
+version: "3.6"
+
+services:
+
+  redis:
+    image: redis:4
+    networks:
+      yt_web_net:
+        aliases:
+          - db
+          - redis_db
+
+  web:
+    build:
+      context: .
+      dockerfile: ./docker/web.dockerfile
+    ports:
+      - 3333:3000
+    networks:
+      - yt_web_net
+    depends_on:
+      - redis
+
+networks:
+  yt_web_net:
