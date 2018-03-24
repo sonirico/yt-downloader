@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const redis_cli = require('redis').createClient(6379, 'yt_redis_1');
+const redis_cli = require('redis').createClient(6379, 'redis_db');
 
 const ytdl = require('ytdl-core');
 const cntrl = require('../controllers');
