@@ -1,1 +1,4 @@
-module.exports.informer = require('./informer')
+module.exports = {
+    informer: require('./informer'),
+    downloader: require('./downloader')
+}
