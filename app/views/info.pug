@@ -18,7 +18,7 @@ block content
     iframe(witdh='50%', src=video.url)
 
     form(action="/download/", method="post")
-        input(type="hidden", name="video_id", value= video.id)
+        input(type="hidden", name="video_id", value= video.video_id)
 
         if valid_duration
             input(type="submit", value="Download")
