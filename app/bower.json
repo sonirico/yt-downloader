@@ -1,0 +1,21 @@
+{
+  "name": "yt-downloader",
+  "description": "A multipurpose youtube-to-* microservice",
+  "main": "",
+  "authors": [
+    "Marcos <msanchez@katodia.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/sonirico/yt-downloader",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}

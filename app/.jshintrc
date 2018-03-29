@@ -1,0 +1,17 @@
+{
+    "shadow": true,
+    "moz": true,
+    "unused": true,
+    "curly": true,
+    "eqnull": true,
+    "eqeqeq": true,
+    "undef": true,
+    "globals": {
+        "jQuery": true,
+        "console": true,
+        "module": true,
+        "window": true,
+        "document": true,
+        "JSON": true
+    }
+}

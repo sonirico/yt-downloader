@@ -10,5 +10,5 @@ html
     block content
 
     block gruntedjs
-      script(src='/bundles/5b4aaf595c97e7e095e7b5febae8496a.min.js')
+      script(src='/bundles/<bundle-goes-here>.min.js')
 
