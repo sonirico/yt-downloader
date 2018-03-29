@@ -11,6 +11,8 @@ services:
           - redis_db
 
   web:
+    environment:
+      - SETTINGS=base
     build:
       context: .
       dockerfile: ./docker/web.dockerfile
