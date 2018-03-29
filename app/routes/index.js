@@ -1,32 +1,45 @@
 var express = require('express');
-var router = express.Router();
-
-const redis_cli = require('redis').createClient(6379, 'redis_db');
 
 const ytdl = require('ytdl-core');
+const config = require('../config.js');
 const cntrl = require('../controllers');
+const redisClient = require('../providers/redis');
+const asyncHandler = require('../utils/async');
 
-let validate_url = function (url) {
-  return ytdl.validate_url(url);
-}
+var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
+
+let validate_url = url => { ytdl.validate_url(url); };
+
+
+router.get('/', (req, res, next) => {
   res.render('index', { title: 'YT Downloader' });
 });
 
 
+let getOrSetVideoInfo = async (url) => {
+  await redisClient.select(config.REDIS.DDBB.VIDEO_INFO);
 
-router.get('/info/', (req, res, next) => {
+  let res = await redisClient.get(url);
+
+  if (!res) {
+    let info = await cntrl.informer.getInfo(url);
+
+    await redisClient.set(url, JSON.stringify(info));
+
+    return info;
+  }
+
+  return JSON.parse(res);
+};
+
+
+router.get('/info/', asyncHandler(async (req, res, next) => {
   let url = req.query.url;
 
-  cntrl.informer.getInfo(url).then((info) => {
-    // Set info to redis
-    redis_cli.set(url, JSON.stringify(info), (err, res) => {
-      console.log(err, res);
-    });
+  try {
+    let info = await getOrSetVideoInfo(url);
 
-    //
     let context = {};
     let duration = parseInt(info.length_seconds);
 
@@ -34,18 +47,18 @@ router.get('/info/', (req, res, next) => {
     context.video = info;
 
     res.render('info', context);
+  } catch (e) {
+    console.error('getOrSet', e);
+    res.render('error', e);
+  }
+}));
 
-  }).catch((err) => {
-    console.error(err);
-    res.render('error', err);
-  });
-});
-
-router.post('/download/', (req, res, next) => {
+router.post('/download/', asyncHandler(async (req, res, next) => {
   let video_id = req.body.video_id;
 
+  await cntrl.downloader.download_to_mp3(video_id);
 
-  // redis video id
-});
+  res.render('index', { title: 'ok' });
+}));
 
 module.exports = router;
