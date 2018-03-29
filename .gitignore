@@ -4,6 +4,7 @@ data/
 # binaries and libraries
 app/bin/
 app/node_modules/
+app/public/bundles
 
 .vagrant/
 app/.env
