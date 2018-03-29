@@ -6,4 +6,6 @@ app/bin/
 app/node_modules/
 
 .vagrant/
-env.yml
+app/.env
+
+app/bower_components
