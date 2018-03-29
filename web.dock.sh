@@ -8,15 +8,14 @@ function run () {
     --net ytdownloader_yt_web_net \
     --mount type=bind,source="$(pwd)"/app,target=/yt \
     --name ytdownloader_web_1 \
-    yt_web \
+    ytdownloader_web \
     sh
 };
 
 function build () {
-  docker build \
+  docker build --force-rm --no-cache \
     -f docker/web-no-compose.dockerfile \
-    -t ytdownloader_web_1 .
-
+    -t ytdownloader_web .
 }
 
 
