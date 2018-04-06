@@ -10,3 +10,7 @@ app/public/bundles
 app/.env
 
 app/bower_components
+
+## Editors and misc
+
+.idea/
