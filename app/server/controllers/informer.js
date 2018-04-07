@@ -1,4 +1,4 @@
-const ytdl = require('ytdl-core')
+const ytdl = require('ytdl-core');
 
 function getInfo (url, options=[]) {
     return ytdl.getInfo(url, options);

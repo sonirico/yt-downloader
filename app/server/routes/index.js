@@ -2,7 +2,7 @@ var express = require('express');
 
 const ytdl = require('ytdl-core');
 const config = require('../config.js');
-const cntrl = require('../controllers');
+const cntrl = require('../controllers/index');
 const redisClient = require('../providers/redis');
 const asyncHandler = require('../utils/async');
 

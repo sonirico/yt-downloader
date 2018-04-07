@@ -13,5 +13,6 @@ RUN npm install
 CMD npm start
 
 EXPOSE 3333
+EXPOSE 8080
 
 VOLUME ["/yt"]

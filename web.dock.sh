@@ -3,6 +3,7 @@
 function run () {
   docker run \
     -p 3333:3000 \
+    -p 8080:8080 \
     --rm \
     -it \
     --net ytdownloader_yt_web_net \

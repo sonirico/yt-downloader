@@ -1,5 +1,5 @@
-const config = require('../config');
 const redis = require('redis');
+const config = require('../config');
 const asyncRedis = require('async-redis');
 
 let client = redis.createClient({
