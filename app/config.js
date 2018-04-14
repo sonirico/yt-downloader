@@ -1,3 +1,3 @@
 let config_module = process.env.SETTINGS || 'default';
 
-module.exports = require(`./settings/${config_module}.js`);
+module.exports = require(`./settings/${config_module}`);
