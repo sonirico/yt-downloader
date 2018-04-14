@@ -5,7 +5,7 @@
   "scripts": {
     "postinstall": "bower install --force && grunt bundle",
     "start": "node ./bin/www",
-    "test": "grunt test && echo Do backend tests! "
+    "test": "npx mocha tests/"
   },
   "dependencies": {
     "async-redis": "^1.1.3",

@@ -1,16 +1,20 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const app = require('../app');
-
 const expect = chai.expect;
+const app = require('../app');
 
 chai.use(chaiHttp);
 
 describe('yt-dowloader', function () {
     describe('index path', function () {
+        it("smoke test", function () {
+           expect(true).to.be.equal(true);
+        });
         it('should responds with code 200', function (done) {
             chai.request(app).get('/').end(function (err, res) {
-                expect(res).to.have.status(200)
+                let status_response = res.statusCode;
+                done();
+                expect(status_response).to.be.equal(200);
             })
         });
     })
