@@ -5,7 +5,7 @@ const app = require('../server/app');
 
 chai.use(chaiHttp);
 
-describe('yt-dowloader', function () {
+describe('yt-downloader', function () {
     describe('index path', function () {
         it("smoke test", function () {
             expect(true).to.be.equal(true);
