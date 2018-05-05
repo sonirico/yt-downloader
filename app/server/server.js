@@ -7,7 +7,7 @@
 var app = require('./app');
 var debug = require('debug')('yt-downloader:server');
 var http = require('http');
-
+var config = require('./settings');
 /**
  * Get port from environment and store in Express.
  */
@@ -15,6 +15,7 @@ var http = require('http');
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
+console.log(config);
 
 /**
  * Create HTTP server.

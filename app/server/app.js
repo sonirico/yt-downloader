@@ -1,5 +1,12 @@
 // Load environ variables
-require('dotenv').config();
+(() => {
+    var result = require('dotenv').config();
+
+    if (result.error) {
+        throw result.error
+    }
+})();
+
 
 var express = require('express');
 var path = require('path');

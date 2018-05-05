@@ -1,4 +1,4 @@
-const config = require('../config');
+const config = require('../settings');
 const readline = require('readline');
 const ytdl     = require('ytdl-core');
 const ffmpeg   = require('fluent-ffmpeg');

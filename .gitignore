@@ -14,3 +14,7 @@ app/bower_components
 ## Editors and misc
 
 .idea/
+
+## Logging files
+
+*.log

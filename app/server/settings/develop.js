@@ -1,4 +1,4 @@
-var config = require('./base');
+var config = require('./base.js');
 
 // Tune config here
 

@@ -1,13 +1,12 @@
 var express = require('express');
 
 const ytdl = require('ytdl-core');
-const config = require('../config.js');
+const config = require('../settings');
 const cntrl = require('../controllers/index');
 const redisClient = require('../providers/redis');
 const asyncHandler = require('../utils/async');
 
 var router = express.Router();
-
 
 let validate_url = url => { ytdl.validate_url(url); };
 
